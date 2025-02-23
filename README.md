@@ -15,7 +15,7 @@
 - sqlalchemy
 - apache-airflow
 
-Execute o seguinte comando para instalação imediata:
+Execute o seguinte comando para instalação automática:
 
 ```
 python instalar_dependencias.py
