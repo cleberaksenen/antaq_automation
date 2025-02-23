@@ -1,30 +1,27 @@
+WITH atracacao_temp AS (
+    SELECT
+        a.UF,
+        a.Regiao_Geografica,
+        YEAR(a.Data_Atracacao) AS Ano,
+        MONTH(a.Data_Atracacao) AS Mes,
+        COUNT(a.IDAtracacao) AS Numero_Atracacoes,
+        SUM(DATEDIFF(a.Data_Inicio_Operacao, a.Data_Atracacao)) AS Tempo_Esperando,
+        SUM(DATEDIFF(a.Data_Termino_Operacao, a.Data_Inicio_Operacao)) AS Tempo_Atracado
+    FROM atracacao_fato a
+    WHERE (a.UF = 'CE' OR a.Regiao_Geografica = 'Nordeste' OR a.UF IS NULL) -- Ceará, Nordeste e Brasil
+    AND (YEAR(a.Data_Atracacao) IN (2021, 2023)) -- Apenas 2021 e 2023
+    GROUP BY a.UF, a.Regiao_Geografica, YEAR(a.Data_Atracacao), MONTH(a.Data_Atracacao)
+)
 SELECT
-    CASE
+    CASE 
         WHEN UF = 'CE' THEN 'Ceará'
-        WHEN RegiaoGeografica = 'Nordeste' THEN 'Nordeste'
+        WHEN Regiao_Geografica = 'Nordeste' THEN 'Nordeste'
         ELSE 'Brasil'
     END AS Localidade,
-    
-    Ano_Inicio_Operacao AS Ano,
-    Mes_Inicio_Operacao AS Mes,
-    
-    COUNT(IDAtracacao) AS Numero_Atracoes,
-
-    AVG(DATEDIFF(HOUR, DataAtracacao, DataChegada)) AS Tempo_Espera_Horas,
-
-    AVG(DATEDIFF(HOUR, DataAtracacao, DataDesatracacao)) AS Tempo_Atracado_Horas
-
-FROM
-    atracacao_fato
-WHERE
-    Ano_Inicio_Operacao IN (2021, 2023)
-
-    AND (
-        UF = 'CE'  -- Ceará
-        OR RegiaoGeografica = 'Nordeste'  -- Nordeste
-        OR UF IS NOT NULL  -- Brasil (geral)
-    )
-GROUP BY
-    Localidade, Ano, Mes
-ORDER BY
-    Localidade, Ano, Mes;
+    Ano,
+    Mes,
+    Numero_Atracacoes,
+    Tempo_Esperando AS Tempo_Esperando (Horas),
+    Tempo_Atracado AS Tempo_Atracado (Horas)
+FROM atracacao_temp
+ORDER BY Localidade, Ano, Mes;
