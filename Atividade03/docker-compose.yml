@@ -15,7 +15,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   airflow-webserver:
-    image: apache/airflow:2.6.3
+    image: apache/airflow:2.7.0-python3.9
     container_name: airflow_webserver
     restart: always
     depends_on:
@@ -32,7 +32,7 @@ services:
     command: webserver
 
   airflow-scheduler:
-    image: apache/airflow:2.6.3
+    image: apache/airflow:2.7.0-python3.9
     container_name: airflow_scheduler
     restart: always
     depends_on:
@@ -45,6 +45,26 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
     command: scheduler
+
+  spark:
+    image: bitnami/spark:3.3.1
+    container_name: spark
+    restart: always
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "7077:7077"
+      - "8081:8081"
+
+  spark-worker:
+    image: bitnami/spark:3.3.1
+    container_name: spark_worker
+    restart: always
+    depends_on:
+      - spark
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
 
 volumes:
   postgres_data:
