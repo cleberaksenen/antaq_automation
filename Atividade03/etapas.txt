@@ -1,10 +1,28 @@
-1. Subir os containers:
+------------------
+ATIVIDADE 03
+------------------
+
+Finalmente, este processo deverá ser automatizado usando a ferramenta de orquestração de
+workflow Apache Airflow + Docker. Escreva uma DAG para a base ANTAQ levando em conta
+as características e etapas de ETL para esta base de dados considerando os repositórios de
+data lake e banco de dados. Esta também podperá conter operadores para enviar avisos por
+e-mail, realizar checagens quando necessário (e.g.: caso os dados não sejam encontrados,
+quando o processo for finalizado, etc). Todos os passos do processo ETL devem ser listados
+como tasks e orquestrados de forma otimizada. (3 pts + 1 pts)
+
+RESPOSTA:
+
+Para a criação do workflow foi desenvolvido o "algoritmo_wf.ipynb" e o arquivo "docker-compose.yml"
+
+ETAPAS:
+
+1. Subir os contêineres do Airflow:
 
 docker-compose up -d
 
-2. Iniciar o banco de dados do Airflow:
+2. Inicializar o banco de dados do Airflow:
 
-docker-compose exec airflow-webserver airflow db init
+docker-compose exec airflow-webserver airflow db upgrade
 
 3. Criação do usuário administrador:
 
@@ -15,3 +33,15 @@ docker-compose exec airflow-webserver airflow users create \
 4. Acesso ao Airflow:
 
 http://localhost:8080
+
+5. Verificar se todos os serviços subiram corretamente:
+
+docker ps
+
+6. Verificar logs do Airflow:
+
+docker-compose logs -f airflow-webserver
+
+7. Parar os contêineres após finalização:
+
+docker-compose down

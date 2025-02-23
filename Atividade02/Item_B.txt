@@ -39,25 +39,22 @@ pode ter mais de uma mercadoria)
 | Origem                        | Percurso Transporte Interiores         |
 | Destino                       | STNaturezaCarga                        |
 | CDMercadoria (Para carga      | STSH2                                  |
-| conteinerizada informar       |                                        |
-| código das mercadorias        |                                        |
-| dentro do contêiner.)         |                                        |
-| Tipo Operação da Carga        | STSH4                                  |
-| Carga Geral Acondicionamento  | Natureza da Carga                      |
-| ConteinerEstado               | Sentido                                |
-| Tipo Navegação                | TEU                                    |
-| FlagAutorizacao               | QTCarga                                |
-| FlagCabotagem                 | VLPesoCargaBruta                       |
-| FlagCabotagemMovimentacao     | Ano da data de início da operação da   |
-|                               | atracação                              |
-| FlagConteinerTamanho          | Mês da data de início da operação da   |
-|                               | Atracação                              |
-| FlagLongoCurso                | Porto Atracação                        |
-| FlagMCOperacaoCarga           | SGUF                                   |
-| FlagOffshore                  | Peso líquido da carga ( Carga não      |
-|                               | conteinerizada = Peso bruto;           |
-|                               | Carga conteinerizada = Peso sem        |
-|                               | contêiner)                             |
+| conteinerizada informar       | STSH4                                  |
+| código das mercadorias        | Natureza da Carga                      |                  
+| dentro do contêiner.)         | Sentido                                |       
+| Tipo Operação da Carga        | TEU                                    |
+| Carga Geral Acondicionamento  | QTCarga                                |
+| ConteinerEstado               | VLPesoCargaBruta                       |         
+| Tipo Navegação                | Ano da data de início da operação da   |                                
+| FlagAutorizacao               | atracação                              |  
+| FlagCabotagem                 | Mês da data de início da operação da   |                    
+| FlagCabotagemMovimentacao     | Atracação                              |
+|                               | Porto Atracação                        |       
+| FlagConteinerTamanho          | SGUF                                   |
+|                               | Peso líquido da carga ( Carga não      |                        
+| FlagLongoCurso                | conteinerizada = Peso bruto;           |            
+| FlagMCOperacaoCarga           | Carga conteinerizada = Peso sem        |                            
+| FlagOffshore                  | contêiner)                             | 
 --------------------------------------------------------------------------   
 
 RESPOSTA:
@@ -82,3 +79,6 @@ A criação do banco se encontra descrita no arquivo "criardb.sql"
 
 A importação das tabelas para o banco de dados foi realizada também utilizando o script 
 interno "ETL.ipynb"
+
+Uma imagem do diagrama do banco desenvolvido de forma local está disponível em
+"diagrama_db.jpg"

@@ -18,4 +18,7 @@ RESPOSTA:
 
 A consulta foi feita utilizando o arquivo "consulta.sql"
 
+Uma imagem do resultado da consulta realizada no servidor criado de forma local está disponível em
+"resultado_consulta_realizada.jpg"
+
 Visualizações gráficas foram construídas através do arquivo "analise_dados.ipynb"
