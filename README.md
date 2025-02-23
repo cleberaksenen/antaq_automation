@@ -30,7 +30,7 @@ python instalar_dependencias.py
    - Atividade02/Item_A.txt
    - Atividade02/Item_B.txt
    - Atividade02/Item_C.txt
-No mesmo diretório se encontram também os demais arquivos da atividade.
+   - No mesmo diretório se encontram também os demais arquivos da atividade.
 3) A resposta da terceira atividade se encontra em "Atividade03"
  
 ### -----------------------------------------------------
