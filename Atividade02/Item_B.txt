@@ -1,0 +1,84 @@
+-----------------
+ITEM (B)
+-----------------
+Nosso cliente estipulou que necessita de informações apenas sobre as atracações e cargas contidas nessas atracações dos últimos 3 anos (2021-2023). Logo, o time de especialistas de dados, em conjunto com você, analisaram e decidiram que os dados devem constar no data lake do observatório e em duas tabelas do SQL Server, uma para atracação e outra para carga.
+Assim, desenvolva script(s) em Python e Spark que extraia os dados do anuário, transforme-os e grave os dados tanto no data lake, quanto nas duas tabelas do SQL Server, sendo atracacao_fato e carga_fato, com as respectivas colunas abaixo. 
+Os scripts de criação das tabelas devem constar no código final.
+
+Lembrando que os dados têm periodicidade mensal, então script’s
+automatizados e robustos ganham pontos extras. (2 pontos + 1 ponto para
+solução automatizada e elegante).
+
+Colunas da tabela atracacao_fato:
+----------------------------------------------------------------------
+| IDAtracacao                       | Tipo de Navegação da Atracação |
+| CDTUP                             | Nacionalidade do Armador       |
+| IDBerco                           | FlagMCOperacaoAtracacao        |
+| Berço                             | Terminal                       |
+| Porto Atracação                   | Município                      |
+| Apelido Instalação Portuária      | UF                             |
+| Complexo Portuário                | SGUF                           |
+| Tipo da Autoridade Portuária      | Região Geográfica              |
+| Data Atracação                    | No da Capitania                |
+| Data Chegada                      | No do IMO                      |
+| Data Desatracação                 | TEsperaAtracacao               |
+| Data Início Operação              | TesperaInicioOp                |
+| Data Término Operação             | TOperacao                      |
+| Ano da data de início da operação | TEsperaDesatracacao            |
+| Mês da data de início da operação | TAtracado                      |
+| Tipo de Operação                  | TEstadia                       |
+----------------------------------------------------------------------
+
+Colunas da tabela carga_fato: 
+(atente-se que para o tipo de carga conteinerizada, pois cada contêiner 
+pode ter mais de uma mercadoria)
+
+--------------------------------------------------------------------------
+| IDCarga                       | FlagTransporteViaInterioir             |
+| IDAtracacao                   | Percurso Transporte em vias Interiores |
+| Origem                        | Percurso Transporte Interiores         |
+| Destino                       | STNaturezaCarga                        |
+| CDMercadoria (Para carga      | STSH2                                  |
+| conteinerizada informar       |                                        |
+| código das mercadorias        |                                        |
+| dentro do contêiner.)         |                                        |
+| Tipo Operação da Carga        | STSH4                                  |
+| Carga Geral Acondicionamento  | Natureza da Carga                      |
+| ConteinerEstado               | Sentido                                |
+| Tipo Navegação                | TEU                                    |
+| FlagAutorizacao               | QTCarga                                |
+| FlagCabotagem                 | VLPesoCargaBruta                       |
+| FlagCabotagemMovimentacao     | Ano da data de início da operação da   |
+|                               | atracação                              |
+| FlagConteinerTamanho          | Mês da data de início da operação da   |
+|                               | Atracação                              |
+| FlagLongoCurso                | Porto Atracação                        |
+| FlagMCOperacaoCarga           | SGUF                                   |
+| FlagOffshore                  | Peso líquido da carga ( Carga não      |
+|                               | conteinerizada = Peso bruto;           |
+|                               | Carga conteinerizada = Peso sem        |
+|                               | contêiner)                             |
+--------------------------------------------------------------------------   
+
+RESPOSTA:
+
+Passo 01 - Extração dos dados 
+Os dados brutos foram baixados da ANTAQ, filtrando pelos anos de 2021, 2022 e 2023.
+Eles se encontram no diretório "./dados_brutos"
+
+Passo 02 - Tratamento dos dados
+Toda a etapa de Tratamento de dados foi realizada utilizando o script interno 
+"ETL.ipynb", desenvolvido em linguagem Python
+
+Os arquivos tratados foram salvos como as 2 tabelas sugeridas:
+
+-- atracacao_fato
+-- carga_fato
+
+Passo 03 - Disponibilização dos dados
+Foi construído um banco de dados interno em SQL Server para armazenamento e 
+distribuição dos dados tratados.
+A criação do banco se encontra descrita no arquivo "criardb.sql"
+
+A importação das tabelas para o banco de dados foi realizada também utilizando o script 
+interno "ETL.ipynb"
