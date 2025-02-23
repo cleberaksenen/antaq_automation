@@ -10,7 +10,7 @@ Resposta:
 Dado o cenário observado para os dados do painel da ANTAQ, SQL seria a melhor escolha para armazena-los. Cheguei a essa conclusão pois os dados mencionados possuem uma estrutura bem definida (com colunas fixas como ID, Data, Tempo, entre outras) e serão necessárias a realização de consultas complexas e relatórios detalhados pela equipe de análise e ciência de dados. 
 Bancos de dados do tipo relacional são otimizados para esse tipo de uso.
 
-Porém, encergando um cenário onde o volume de dados possa crescer significativamente ou caso surja a necessidade de lidar com dados semi-estruturados ou não estruturados no futuro, a opção por um Data Lake ou uma combinação de SQL e Data Lake pode ser interessante. 
+Porém, enxergando um cenário onde o volume de dados possa crescer significativamente ou caso surja a necessidade de lidar com dados semi-estruturados ou não estruturados no futuro, a opção por um Data Lake ou uma combinação de SQL e Data Lake pode ser interessante. 
 Para agora, uma estrutura relacional parece ser a mais indicada.
 
 ------------------------------------------------------------------------------
