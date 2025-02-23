@@ -39,4 +39,5 @@ Os comandos foram desenvolvidos em um notebook Jupyter, utilizando a extensão d
 
 Após o tratamento dos dados, o banco de dados SQL foi estruturado conforme a lógica apresentada no diagrama abaixo:
 
-![image](https://github.com/user-attachments/assets/54dc737b-7c61-445d-ac71-10a4e89684ab)
+![image](https://github.com/user-attachments/assets/1e060d16-c433-47d4-be6e-da2bd39a2a4b)
+
