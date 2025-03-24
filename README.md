@@ -1,11 +1,13 @@
-# Prova prática FIEC 2025 - Especialista em Engenharia de Dados
-## Candidato: Cleber Furtado Aksenen
+# 🚢 Projeto de Automação de Dados da ANTAQ
+## Agência Nacional de Transportes Aquaviários
 
-## Dependências
+Este projeto tem como objetivo automatizar a coleta, o processamento e o armazenamento de dados relacionados à ANTAQ, utilizando ferramentas como Python, Docker, SQL e Apache Airflow para garantir eficiência e escalabilidade.
+
+## 📦 Dependências
 - <img alt="Python" src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white" /> Python versão 3
 - <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" /> Docker
 
-## Bibliotecas necessárias
+## 📚 Bibliotecas Necessárias
 - requests
 - beautifulsoup4
 - pandas
@@ -16,26 +18,15 @@
 - apache-airflow
 - python-dotenv
 
-Execute o seguinte comando para instalação automática:
-
+🔧 Instalação Automática
+Para instalar todas as dependências necessárias, execute o seguinte comando:
 ```
 python instalar_dependencias.py
 ```
 
-
 ### -----------------------------------------------------
-## Respostas:
-1) A resposta da primeira atividade se encontra em "1_Auto_Avaliacao.txt"
-2) As respostas da segunda atividade se encontram na pasta "Atividade02", estando explicadas em:
-   - Atividade02/Item_A.txt
-   - Atividade02/Item_B.txt
-   - Atividade02/Item_C.txt
-   - No mesmo diretório se encontram também os demais arquivos da atividade.
-3) A resposta da terceira atividade se encontra em "Atividade03"
- 
-### -----------------------------------------------------
-## Lógica:
-Os comandos foram desenvolvidos em um notebook Jupyter, utilizando a extensão do VS Code, devido à preferência pessoal e à praticidade para a realização de testes.
+## 🛠 Lógica e Desenvolvimento
+Os scripts foram desenvolvidos em um notebook Jupyter, utilizando a extensão do VS Code, proporcionando mais praticidade para testes e validações.
 
 Após o tratamento dos dados, o banco de dados SQL foi estruturado conforme a lógica apresentada no diagrama abaixo:
 
